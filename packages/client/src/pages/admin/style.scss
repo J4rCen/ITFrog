@@ -1,0 +1,21 @@
+.display_flex_center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.admin_div_form {
+    gap: 5px;
+    width: 100%;
+}
+
+.input_width {
+    max-width: 300px;
+    width: 70%;
+}
+
+.admin_div_ul {
+    list-style: none;
+    font-size: 20px;
+}
