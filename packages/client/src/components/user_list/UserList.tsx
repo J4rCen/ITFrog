@@ -19,13 +19,9 @@ const UserList = (props: UserListProps) => {
                 map[`${date[0][0]}`] = date[0][1]
             })
 
-            console.log(map)
-
             setUserList(map)
         }
     }, [props])
-
-    console.log(list)
 
     return (
         <div>
@@ -33,7 +29,6 @@ const UserList = (props: UserListProps) => {
                 {
                     Object.keys(list) !== undefined 
                     ? Object.keys(list).map(el => {
-                        console.log(el)
                         return <button onClick={() => setViewList(el)}>Просмотреть список: {el}</button>
                     })
                     : ''

@@ -32,7 +32,6 @@ const CreateList = (props: CreateListProps) => {
             json[`${nameNewList}`] = list
 
             const date = {userName: props.userName, userList: json}
-            console.log(date)
 
             const transport = new UserTransport("http://localhost:3001/api/user/")
             transport.put("/updateList", date)

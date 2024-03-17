@@ -23,7 +23,6 @@ async function startServer() {
 
         mongoose.connection.once("open", () => {
             console.log("Connect")
-            
         })
 
         server.listen(PORT, () => {
