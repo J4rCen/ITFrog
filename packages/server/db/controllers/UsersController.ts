@@ -5,7 +5,7 @@ class UserController {
 
     getUserList = async (UserName: String) => {
         try {
-            return this.User.find({"userName": UserName})
+            return await this.User.find({"userName": UserName})
         } catch (error) {
             console.error(error)
         }
@@ -13,9 +13,9 @@ class UserController {
 
     addNewUser = async (UserName: String) => {
         try {
-            const find = this.User.find({userName: UserName}).limit(1)
+            const find = await this.User.findOne({userName: UserName}).then(status => status)
             if(find === null) {
-                new this.User({userName: UserName}).save()
+                new this.User({userName: UserName, userList: []}).save()
                 return {status: "ok", des: "Пользователь создан"}
             } else {
                 return {status: "err", des: "Пользователь уже есть"}
