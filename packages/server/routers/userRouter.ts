@@ -24,8 +24,10 @@ userRouter.post("/addUser", async (req, rej) => {
 userRouter.put("/updateList", async (req, rej) => {
     try {
         const status = await UsersController.updateOneUserList(req.body.userName, req.body.userList)
+        return rej.status(200).send(status)
     } catch (error) {
         console.error(error)
+        return rej.status(500).send(error)
     }
 })
 

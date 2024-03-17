@@ -21,16 +21,16 @@ const UserMenu = (props: any) => {
     }
 
     return (
-        <div>
+        <div className="display_flex_center">
 
             <div>
-                <button onClick={handleClick}>{ switchMode ? "Создать список" : "Просмотреть список"}</button>
+                <button onClick={handleClick}>{ switchMode ? "Просмотреть список" : "Создать список"}</button>
             </div>
 
             {
                 switchMode 
-                ? <UserList list={userList}/>
-                : <CreateList userName={userName}/>
+                ? <CreateList userName={userName}/>
+                : <UserList list={userList}/>
             }
 
         </div>

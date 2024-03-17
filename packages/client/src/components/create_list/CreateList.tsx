@@ -1,7 +1,6 @@
-import { useState } from "react"
+import React, { useState } from "react"
 import { useSelector } from "react-redux"
 import UserTransport from "../../utils/UsersTransport"
-// import UserTransport from "../../utils/UsersTransport"
 
 interface CreateListProps {
     userName: string
@@ -13,14 +12,16 @@ const CreateList = (props: CreateListProps) => {
     const [nameNewList, setNameNewList] = useState("")
     const [checkbox, setCheckbox] = useState({})
 
-    const date = useSelector(state => state.cites)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const date = useSelector((state: any) => state.cites)
 
     const handleSubmit = async (event: React.FormEvent) => {
         try {
             event.preventDefault()
         
             const list: Array<string> = []
-            const json: object = {}
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const json: any = {}
 
             Object.entries(checkbox).map(el => {
                 if(el[1]) {
@@ -35,15 +36,16 @@ const CreateList = (props: CreateListProps) => {
 
             const transport = new UserTransport("http://localhost:3001/api/user/")
             transport.put("/updateList", date)
-            .then(el => {
-                console.log(el)
-            }).catch(err => console.error(err))
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            .then((res: any) => alert(res.des))
+            .catch(err => console.error(err))
         } catch (error) {
             console.error(error)
         }
     }
 
-    const handleToggle = ({ target }) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const handleToggle = ({ target }: any) => {
         setCheckbox(s => ({ ...s, [target.id]: !s[target.id] }));
     }
 
@@ -51,7 +53,7 @@ const CreateList = (props: CreateListProps) => {
         
     return (
         <div>
-            <form action="" onSubmit={handleSubmit}>
+            <form className="admin_div_form display_flex_center" action="" onSubmit={handleSubmit}>
 
                 <input type="text" value={nameNewList} onChange={el => setNameNewList(el.target.value)} placeholder="Введите название списка"/>
                 

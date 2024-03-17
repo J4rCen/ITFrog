@@ -25,9 +25,11 @@ const User = () => {
     }, [userName])
 
     return (
-        <div className="user_div">
-            {
-                userName.length !== 0 ? <UserMenu store={store}/> : <UserSelection setName={setUserName}/>
+        <div className="user_div display_flex_center">
+            {   
+                userName.length !== 0 && Object.keys(store).length !== 0
+                ? <UserMenu store={store}/> 
+                : <UserSelection setName={setUserName}/>
             }
         </div>
     )    

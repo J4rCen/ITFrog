@@ -1,4 +1,3 @@
-import "./style.scss"
 import { useState } from "react"
 import { citesTransport } from "../../utils/CitesTransport"
 import { useSelector } from "react-redux"
@@ -22,7 +21,8 @@ const Admin = () => {
         setInputText('')
     }
 
-    const date = useSelector(state => state.cites)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const date = useSelector((state: any) => state.cites)
 
     return(
         <div className="admin_div display_flex_center">

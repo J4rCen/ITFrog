@@ -25,7 +25,8 @@ class CitesTransport extends BaseTransport {
     citesAdd = async (data: dataProps) => {
         try {
             return this.post("/add", data)
-            .then(res => alert(res.des))
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            .then((res: any) => alert(res.des))
             .catch(err => alert(err.response.data))
         } catch (error) {
             console.error(error)
@@ -34,7 +35,8 @@ class CitesTransport extends BaseTransport {
 
     citesDel = async (data: dataProps) => {
         return this.post("/del", data)
-        .then(res => alert(res.des))
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        .then((res: any) => alert(res.des))
         .catch(err => alert(err.response.data))
     }
     

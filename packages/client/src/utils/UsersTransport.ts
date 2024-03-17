@@ -21,15 +21,11 @@ class UserTransport extends BaseTransport {
     }
 
     userAdd = async (date: dataProps) => {
-        return this.post("/addUser", date)
-        .then(res => alert(res.des))
-        .catch(err => alert(err.response.data))
+        return await this.post("/addUser", date)
     }
 
     userListUpdate = async (date: dataProps) => {
-        return this.put("/updateList", date)
-        .then(res => alert(res.des))
-        .catch(err => alert(err.response.data))
+        return await this.put("/updateList", date)
     }
 }
 

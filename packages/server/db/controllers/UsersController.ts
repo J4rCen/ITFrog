@@ -13,8 +13,14 @@ class UserController {
 
     addNewUser = async (UserName: String) => {
         try {
-            console.log(UserName)
-            new this.User({userName: UserName}).save()
+            const find = this.User.find({userName: UserName}).limit(1)
+            if(find === null) {
+                new this.User({userName: UserName}).save()
+                return {status: "ok", des: "Пользователь создан"}
+            } else {
+                return {status: "err", des: "Пользователь уже есть"}
+            }
+            
         } catch (error) {
             console.error(error)
         }
@@ -22,9 +28,11 @@ class UserController {
 
     updateOneUserList = async (UserName: String, UserList: Object) => {
         try {
-            this.User.findOneAndUpdate({userName: UserName},  {$push: {userList: UserList}}).then(el => console.log(el))
+            this.User.findOneAndUpdate({userName: UserName},  {$push: {userList: UserList}}).then(status => status)
+            return {status: "ok", des: "Список создан"}
         } catch (error) {
             console.error(error)
+            return {status: "err", des: "Произошла ошибка"}
         }
     }
 }

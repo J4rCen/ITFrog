@@ -14,9 +14,9 @@ const SwitchMode = () => {
     }
 
     return (
-        <div>
-            <button onClick={switchUser}>User</button>
-            <button onClick={switchAdmin}>Admin</button>
+        <div className="display_flex_center">
+            <button className="input_width" onClick={switchUser}>User</button>
+            <button className="input_width" onClick={switchAdmin}>Admin</button>
         </div>
     )
 }
