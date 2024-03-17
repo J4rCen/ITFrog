@@ -2,7 +2,10 @@
   "name": "itfrog",
   "private": true,
   "scripts": {
-    "client:dev": "lerna run dev --scope=client"
+    "docker:start": "docker-compose up -d",
+    "server:start": "lerna run start --scope=server",
+    "client:start": "lerna run dev --scope=client",
+    "docker:stop": "docker-compose stop"
   },
   "workspaces": [
     "packages/*"
