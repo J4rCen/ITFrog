@@ -11,8 +11,6 @@ async function getDate() {
 
 const store = createStore({cites: await getDate()})
 
-console.log(store.getState())
-
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>

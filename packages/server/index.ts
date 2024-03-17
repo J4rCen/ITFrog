@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import connectDB from "./db/connectDB";
 import bodyParser from "body-parser";
 import router from "./router";
+import UsersController from "./db/controllers/UsersController";
 
 async function startServer() {
     try {

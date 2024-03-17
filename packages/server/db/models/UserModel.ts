@@ -2,18 +2,12 @@ import { Schema, model } from "mongoose";
 
 interface IUserModel {
     userName: string,
-    userList: {
-        citesList: [
-
-        ]
-    }
+    userList: [object]
 }
 
 const UserModel = new Schema<IUserModel>({
     userName: {type: String, required: true},
-    userList: {
-        citesList: {type: String}
-    }
+    userList: [{type: Object}]
 })
 
 export default model("Users", UserModel)
